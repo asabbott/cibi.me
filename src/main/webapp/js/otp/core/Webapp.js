@@ -54,7 +54,7 @@ otp.core.Webapp = {
     },
     
     setActiveModule : function(module) {
-        //console.log("set active module: "+module.moduleName);
+        console.log("set active module: "+module.moduleName);
         this.map.activeModuleChanged(module);
         this.activeModule = module;
     },   

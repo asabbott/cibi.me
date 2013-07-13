@@ -21,9 +21,9 @@ otp.core.Map = {
     initialize : function(config) {
         otp.configure(this, config);
 
-        this.setLocation(function(currentPosition) {
+        // this.setLocation(function(currentPosition) {
 
-          otp.config.initLatLong = new L.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
+         // otp.config.initLatLong = new L.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
 
           this.lmap = new L.Map('map', {minZoom: otp.config.minZoom, maxZoom: otp.config.maxZoom});
 
@@ -33,13 +33,13 @@ otp.core.Map = {
       	    tileLayer.getTileUrl = otp.config.getTileUrl;
           }
   	    
-          this.lmap.setView(otp.config.initLatLong, otp.config.initZoom).addLayer(tileLayer);
+          this.lmap.setView(otp.config.initLatLng, otp.config.initZoom).addLayer(tileLayer);
           
           if(typeof otp.config.overlayTileUrl != 'undefined') {
-  	    	var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
-  	    	 this.lmap.addLayer(overlayTileLayer);
+  	    	  var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
+  	    	  this.lmap.addLayer(overlayTileLayer);
           }
-        });
+        // });
     },
     
     activeModuleChanged : function(newModule) {
@@ -57,13 +57,12 @@ otp.core.Map = {
     	this.lmap.fitBounds(bounds);
     },
 
-    setLocation : function(processMap)
+    getLocation : function(processMap)
     {
         var currentPosition;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position){
               processMap(position);
-                //currentPosition = new L.LatLng(position.coords.latitude,position.coords.longitude);
             });
         }
         else{

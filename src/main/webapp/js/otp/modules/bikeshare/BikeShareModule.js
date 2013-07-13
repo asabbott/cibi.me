@@ -317,7 +317,7 @@ otp.modules.bikeshare.BikeShareModule =
             this_.stations = stations;
             for(var i=0; i<this_.stations.length; i++) {
                 var station = this_.stations[i].BikeRentalStation;
-                var marker = new L.Marker(new L.LatLng(station.y, station.x), {icon: this_.icons.getSmall(station)}); 
+                var marker = new L.Marker(new L.LatLng(station.x, station.y), {icon: this_.icons.getSmall(station)}); 
                 marker.bindPopup(this_.constructStationInfo(locale.stationInfo.bikeStation, station));
                 this_.stationsLayer.addLayer(marker)
                 station.marker = marker;

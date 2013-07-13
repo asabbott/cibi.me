@@ -75,41 +75,41 @@ var BlueNubIcon = L.Icon.extend({
 
 
 var SmallIcon0Pct = L.Icon.extend({
-    iconUrl: 'images/marker-sm-0pct.png',
+    iconUrl: 'images/ico-divvy-sm-0.png',
     shadowUrl: null,
-    iconSize: new L.Point(11, 8),
+    iconSize: new L.Point(12, 13),
     iconAnchor: new L.Point(5, 8),
     popupAnchor: new L.Point(0, -8)
 });
 
 var SmallIcon25Pct = L.Icon.extend({
-    iconUrl: 'images/marker-sm-25pct.png',
+    iconUrl: 'images/ico-divvy-sm-50.png',
     shadowUrl: null,
-    iconSize: new L.Point(11, 8),
+    iconSize: new L.Point(12, 13),
     iconAnchor: new L.Point(5, 8),
     popupAnchor: new L.Point(0, -8)
 });
 
 var SmallIcon50Pct = L.Icon.extend({
-    iconUrl: 'images/marker-sm-50pct.png',
+    iconUrl: 'images/ico-divvy-sm.png',
     shadowUrl: null,
-    iconSize: new L.Point(11, 8),
+    iconSize: new L.Point(12, 13),
     iconAnchor: new L.Point(5, 8),
     popupAnchor: new L.Point(0, -8)
 });
 
 var SmallIcon75Pct = L.Icon.extend({
-    iconUrl: 'images/marker-sm-75pct.png',
+    iconUrl: 'images/ico-divvy-sm.png',
     shadowUrl: null,
-    iconSize: new L.Point(11, 8),
+    iconSize: new L.Point(12, 13),
     iconAnchor: new L.Point(5, 8),
     popupAnchor: new L.Point(0, -8)
 });
 
 var SmallIcon100Pct = L.Icon.extend({
-    iconUrl: 'images/marker-sm-100pct.png',
+    iconUrl: 'images/ico-divvy-sm.png',
     shadowUrl: null,
-    iconSize: new L.Point(11, 8),
+    iconSize: new L.Point(12, 13),
     iconAnchor: new L.Point(5, 8),
     popupAnchor: new L.Point(0, -8)
 });
