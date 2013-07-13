@@ -15,7 +15,7 @@ if(typeof(otp.config) == "undefined" || otp.config == null) otp.config = {};
 otp.config = {
 
 
-    hostname : "http://veloplan.net/",
+    hostname : "http://localhost:3520/",
     routerId : "mtl",
     
     
@@ -33,8 +33,8 @@ otp.config = {
     minZoom : 12,
     maxZoom : 17,
 
-    loggerUrl : 'http://veloplan.net/cibi/log',
-    dataStorageUrl : 'http://veloplan.net/cibi/data', 
+    loggerUrl : this.hostname + 'cibi/log',
+    dataStorageUrl : this.hostname + 'cibi/data', 
     
     CLASS_NAME : "otp.config"
 };

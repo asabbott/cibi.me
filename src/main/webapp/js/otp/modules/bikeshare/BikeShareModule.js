@@ -56,6 +56,7 @@ otp.modules.bikeshare.BikeShareModule =
         this.icons = new otp.modules.bikeshare.IconFactory();
        
         this.initStations();
+
         var this_ = this;
         setInterval(function() {
             this_.updateStations();
@@ -340,7 +341,7 @@ otp.modules.bikeshare.BikeShareModule =
     },
     
     downloadStationData : function(callback) {
-        var url = otp.config.hostname + '/opentripplanner-api-webapp/ws/bike_rental';
+        var url = otp.config.hostname + 'Data/BikeStations';
         var this_ = this;
         var data_ = { };
         if(otp.config.routerId !== undefined) {
@@ -354,6 +355,9 @@ otp.modules.bikeshare.BikeShareModule =
             success: function(data) {
                 //this_.stations = data.stations;
                 callback(data.stations);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.log(textStatus, errorThrown);
             }
         });
     },
