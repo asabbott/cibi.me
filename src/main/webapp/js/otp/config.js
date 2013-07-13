@@ -7,6 +7,9 @@ if(typeof(otp.config) == "undefined" || otp.config == null) otp.config = {};
 //otp.config.locale = otp.locale.French;
 //otp.config.locale.config.metricsSystem = 'international';
 
+// console.log(currentPosition.coords.latitude);
+// console.log(currentPosition.coords.longitude);
+
 
 // step 2: create an object of default otp.config default values (see step3 where we apply this to any existing config)
 otp.config = {
@@ -21,10 +24,11 @@ otp.config = {
     // tileAttrib : 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
 
     // devseed tiles (DC only) & tile URL function override:
-    tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr,openplans.nyc_bike_overlay/{z}/{x}/{y}.png',
+    //tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr,openplans.nyc_bike_overlay/{z}/{x}/{y}.png',
+    tileUrl : 'http://a.tiles.mapbox.com/v3/asabbott.map-vvvfeozr/{z}/{x}/{y}.png',
     //overlayTileUrl : 'http://{s}.tiles.mapbox.com/v3/intertwine.nyc_bike_overlay/{z}/{x}/{y}.png',
     tileAttrib : 'Routing powered by <a href="http://opentripplanner.org/">OpenTripPlanner</a>, Map tiles from MapBox (<a href="http://mapbox.com/about/maps/">terms</a>) and OpenStreetMap ',
-    initLatLng : new L.LatLng(45.500298,-73.565743),
+    initLatLng : null,
     initZoom : 14,
     minZoom : 12,
     maxZoom : 17,
@@ -35,7 +39,7 @@ otp.config = {
     CLASS_NAME : "otp.config"
 };
 
-var locale = otp.locale.French;
+var locale = otp.locale.English;
 
 $("#about_link").html("meuh");
 

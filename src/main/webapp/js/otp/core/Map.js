@@ -20,21 +20,26 @@ otp.core.Map = {
     
     initialize : function(config) {
         otp.configure(this, config);
-        
-        this.lmap = new L.Map('map', {minZoom: otp.config.minZoom, maxZoom: otp.config.maxZoom});
 
-        var tileLayer = new L.TileLayer(otp.config.tileUrl, {attribution: otp.config.tileAttrib});
-	    
-	    if(typeof otp.config.getTileUrl != 'undefined') {
-    	    tileLayer.getTileUrl = otp.config.getTileUrl;
-        }
-	    
-        this.lmap.setView(otp.config.initLatLng, otp.config.initZoom).addLayer(tileLayer);
-        
-        if(typeof otp.config.overlayTileUrl != 'undefined') {
-	    	var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
-	    	 this.lmap.addLayer(overlayTileLayer);
-        }
+        this.setLocation(function(currentPosition) {
+
+          otp.config.initLatLong = new L.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
+
+          this.lmap = new L.Map('map', {minZoom: otp.config.minZoom, maxZoom: otp.config.maxZoom});
+
+          var tileLayer = new L.TileLayer(otp.config.tileUrl, {attribution: otp.config.tileAttrib});
+  	    
+  	      if(typeof otp.config.getTileUrl != 'undefined') {
+      	    tileLayer.getTileUrl = otp.config.getTileUrl;
+          }
+  	    
+          this.lmap.setView(otp.config.initLatLong, otp.config.initZoom).addLayer(tileLayer);
+          
+          if(typeof otp.config.overlayTileUrl != 'undefined') {
+  	    	var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
+  	    	 this.lmap.addLayer(overlayTileLayer);
+          }
+        });
     },
     
     activeModuleChanged : function(newModule) {
@@ -50,6 +55,20 @@ otp.core.Map = {
     setBounds : function(bounds)
     {
     	this.lmap.fitBounds(bounds);
+    },
+
+    setLocation : function(processMap)
+    {
+        var currentPosition;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position){
+              processMap(position);
+                //currentPosition = new L.LatLng(position.coords.latitude,position.coords.longitude);
+            });
+        }
+        else{
+            alert("Geolocation is not supported by this browser.");
+        }
     },
     
     CLASS_NAME : "otp.core.Map"

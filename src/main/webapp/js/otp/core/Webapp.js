@@ -22,20 +22,22 @@ otp.core.Webapp = {
     
     activeModule : null,
     currentHash : null,
+
     
     initialize : function(config) {
+
         otp.configure(this, config);
-        
+
         this.map = new otp.core.Map();        
         
         this.addModule(new otp.modules.bikeshare.BikeShareModule(this), true);
         
         // Init AddThis
-        addthis_config = {
-		     pubid: "ra-4fb549f217255a7d",
-		     data_track_clickback: false
-		};
-		$.getScript("http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fb549f217255a7d");
+  //       addthis_config = {
+		//      pubid: "ra-4fb549f217255a7d",
+		//      data_track_clickback: false
+		// };
+		// $.getScript("http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fb549f217255a7d");
 		
 		if(window.location.hash !== "")
 			otp.util.DataStorage.retreive(window.location.hash.replace("#", ""), this);
@@ -91,8 +93,7 @@ otp.core.Webapp = {
         var shareRoute = $("#share-route");
         shareRoute.find(".addthis_toolbox").attr("addthis:url", "http://cibi.me/#"+this.currentHash);
         addthis.toolbox(".addthis_toolbox_route");
-    },
-    
+    },    
     
     CLASS_NAME : "otp.core.Webapp"
 }
